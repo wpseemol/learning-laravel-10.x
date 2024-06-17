@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class DynamicRoutController extends Controller {
-    function DynamicRoute( string $id1, string $id2 ): string {
-        return "laravel dynamic Route first :{$id1} send: {$id2}";
+    function DynamicRoute( Request $request ): string {
+
+        $id1 = $request->id1;
+        $id2 = $request->id2;
+
+        return "laravel dynamic Route first :{$id1} send:{$id2}";
     }
 }
