@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\DynamicRoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get( '/', function () {
+    return view( 'welcome' );
+} );
+
+Route::get( "/test", [DemoController::class, "DemoAction"] );
+
+Route::get( "/test/{id1}/{id2}", [DynamicRoutController::class, "DynamicRoute"] );
